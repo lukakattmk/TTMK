@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TTMK — Learn. Play. Pong!</title>
+</head>
+<body>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#f3fbff;color:#17324d}button,input,select,textarea{font:inherit}button{cursor:pointer}
+header{position:sticky;top:0;z-index:20;background:#fff;border-bottom:1px solid #dce8f0;padding:12px 5%;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}.logo{font-size:28px;font-weight:900;color:#153d73}nav{display:flex;gap:5px;flex-wrap:wrap}nav button{border:0;background:transparent;color:#153d73;font-weight:800;padding:10px;border-radius:9px}.cta{background:#ff6b35!important;color:#fff!important}
+main{max-width:1150px;margin:auto;padding:24px 18px 70px}.page{display:none}.page.active{display:block}.hero{background:linear-gradient(135deg,#dff8f4,#e7f3ff);border-radius:28px;padding:55px 25px;text-align:center}.badge{display:inline-block;background:#d6ecff;color:#153d73;padding:8px 14px;border-radius:30px;font-weight:800}h1{font-size:clamp(40px,8vw,72px);line-height:1;color:#153d73;margin:18px 0 12px}h2{font-size:34px;color:#153d73}h3{color:#153d73}.lead{font-size:20px;line-height:1.5;max-width:720px;margin:0 auto 25px;color:#38546e}
+.btn{border:0;border-radius:12px;padding:12px 17px;font-weight:900;background:#153d73;color:#fff}.orange{background:#ff6b35}.green{background:#27ae72}.red{background:#c83d3d}.yellow{background:#ffd33d;color:#153d73}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:18px;margin:24px 0}.card,form,.contact,.panel{background:#fff;border:1px solid #dce8f0;border-radius:18px;padding:22px;box-shadow:0 7px 22px #153d7310}
+label{display:block;font-weight:800;margin:14px 0 6px}input,select,textarea{width:100%;padding:12px;border:1px solid #c8d8e4;border-radius:10px}textarea{min-height:100px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.notice{display:none;margin-top:15px;padding:14px;border-radius:12px;background:#eaf8f0;color:#17633f}.notice.show{display:block}
+.toolbar{display:flex;gap:8px;flex-wrap:wrap;margin:15px 0}table{width:100%;border-collapse:collapse}th,td{padding:10px;text-align:left;border-bottom:1px solid #e5edf2;vertical-align:top}th{background:#edf6fc}.pill{padding:5px 9px;border-radius:99px;background:#e8f1ff;font-weight:800;display:inline-block}.small{font-size:13px;color:#607080}.msg{padding:12px;border-radius:14px;background:#eef7ff;margin:8px 0}.msg.admin{background:#eaf8f0}.calendar{display:grid;grid-template-columns:repeat(7,1fr);gap:5px}.calhead,.day{background:#fff;border:1px solid #dce8f0;border-radius:8px;padding:8px;min-height:82px}.calhead{min-height:auto;background:#edf6fc;font-weight:900;text-align:center}.day.today{outline:3px solid #ffd33d}.event{background:#dff3ff;border-radius:7px;padding:5px;margin-top:5px;font-size:12px;font-weight:700}.muted{color:#9aa8b5}.hidden{display:none!important}footer{background:#153d73;color:#fff;text-align:center;padding:35px 18px}footer a{color:#fff}
+@media(max-width:650px){.grid{grid-template-columns:1fr}header{align-items:flex-start}nav button{padding:8px}.calendar{grid-template-columns:repeat(2,1fr)}.calhead{display:none}}
+</style>
+
+<header><div class="logo">🏓 TTMK</div><nav>
+<button data-page="home">Home</button><button data-page="about">About</button><button data-page="sessions">Sessions</button><button data-page="how">How it works</button><button data-page="contact">Contact</button><button class="cta" data-page="quote">GET A QUOTE</button>
+</nav></header>
+
+<main>
+<section id="home" class="page active"><div class="hero"><span class="badge">SMALL PLAYERS. BIG POSSIBILITIES.</span><h1>TTMK – Learn. Play. Pong!</h1><p class="lead">Fun, friendly table tennis for young beginners. Learn new skills, build confidence and enjoy a new sport.</p><button class="btn orange" data-page="quote">GET A QUOTE</button></div><div class="cards"><div class="card"><h3>🏓 Learn</h3><p>Build basic table tennis skills.</p></div><div class="card"><h3>🎮 Play</h3><p>Friendly games and fun challenges.</p></div><div class="card"><h3>⭐ Grow confidence</h3><p>A welcoming place for beginners.</p></div></div></section>
+
+<section id="about" class="page"><h2>About TTMK</h2><div class="card"><p>TTMK is a friendly local table tennis club designed to help young children learn the sport, have fun, build confidence and develop new skills.</p></div></section>
+<section id="sessions" class="page"><h2>Sessions</h2><div class="cards"><div class="card"><h3>🏓 Paddle control</h3><p>Learn how to handle and control the paddle.</p></div><div class="card"><h3>↔️ Forehand & backhand</h3><p>Build basic technique.</p></div><div class="card"><h3>🎯 Serving</h3><p>Practise simple serving skills.</p></div><div class="card"><h3>🎮 Fun challenges</h3><p>Games and beginner practice.</p></div></div></section>
+<section id="how" class="page"><h2>How it works</h2><div class="cards"><div class="card"><h3>1. Request</h3><p>Parent/guardian completes the quote form.</p></div><div class="card"><h3>2. Your account</h3><p>After submitting, you're taken straight to your private parent area.</p></div><div class="card"><h3>3. Quote</h3><p>TTMK sends the proposed date, time and price into their account.</p></div><div class="card"><h3>4. Respond</h3><p>Accept the quote or request a change using Messages.</p></div></div></section>
+
+<section id="quote" class="page"><h2>Get a Quote</h2><p>After submitting, you will automatically enter your private parent area.</p><form id="quoteForm">
+<div class="grid"><div><label>Parent/guardian name *</label><input name="parent" required></div><div><label>Email *</label><input type="email" name="email" required></div></div><label>Phone *</label><input name="phone" required>
+<div class="grid"><div><label>Child's first name *</label><input name="child" required></div><div><label>Child's age *</label><input type="number" name="age" min="1" max="17" required></div></div>
+<label>Experience *</label><select name="experience" required><option value="">Choose...</option><option>Complete beginner</option><option>Tried table tennis before</option><option>Some experience</option></select>
+<div class="grid"><div><label>Preferred date *</label><input type="date" name="date" required></div><div><label>Alternative date</label><input type="date" name="altdate"></div><div><label>Preferred time *</label><input type="time" name="time" required></div><div><label>Alternative time</label><input type="time" name="alttime"></div></div>
+<label>Number of children *</label><input type="number" name="count" min="1" max="10" value="1" required><label>Additional information</label><textarea name="notes"></textarea>
+<label><input type="checkbox" name="consent" required style="width:auto"> I confirm I am the parent/guardian or have permission to arrange this session.</label>
+<button class="btn orange" type="submit">SUBMIT QUOTE REQUEST</button><div id="quoteNotice" class="notice"></div></form></section>
+
+<section id="parent" class="page"><div class="toolbar"><button class="btn" id="parentQuoteBtn">My Quote</button><button class="btn" id="parentMsgBtn">💬 Messages <span id="messageBadge"></span></button><button class="btn red" id="parentLogout">Log out</button></div>
+<div id="parentQuoteTab"><div class="panel"><h2>My Quote</h2><div id="parentQuote"></div></div></div>
+<div id="parentMessagesTab" class="hidden"><div class="panel"><h2>Messages with TTMK</h2><div id="parentMessages"></div><textarea id="parentMessageText" placeholder="Request a change or send a message to TTMK..."></textarea><button class="btn orange" id="sendParentMessage">SEND MESSAGE</button></div></div></section>
+
+<section id="contact" class="page"><h2>Contact TTMK</h2><div class="contact"><p><b>Email:</b> <a href="mailto:lucacookielicious@gmail.com">lucacookielicious@gmail.com</a></p><p><b>Location:</b> Grange Farm, Milton Keynes, MK8 0NP</p></div></section>
+
+<section id="login" class="page"><h2>Staff Login</h2><form id="loginForm" style="max-width:500px"><label>Password</label><input id="staffPassword" type="password" required><button class="btn" type="submit">LOG IN</button><div id="loginNotice" class="notice"></div></form><p class="small">Demo staff password: <b>ttmkadmin</b>.</p></section>
+
+<section id="admin" class="page"><div class="toolbar"><button class="btn" id="adminDashBtn">Dashboard</button><button class="btn" id="adminQuotesBtn">Quotes</button><button class="btn" id="adminCalBtn">📅 Calendar</button><button class="btn" id="adminMsgBtn">💬 Messages</button><button class="btn red" id="adminLogout">Log out</button></div>
+<div id="adminDashboard"><h2>Staff Dashboard</h2><div class="cards"><div class="card"><b id="newCount">0</b><p>New requests</p></div><div class="card"><b id="confirmedCount">0</b><p>Confirmed bookings</p></div><div class="card"><b id="finishedCount">0</b><p>Finished</p></div></div></div>
+<div id="adminQuotes" class="hidden"><h2>Quote Requests</h2><div class="toolbar"><button class="btn yellow" id="bulkSet">Set details for selected</button><button class="btn green" id="bulkConfirm">Confirm selected</button><button class="btn red" id="bulkCancel">Cancel selected</button></div><div class="panel" style="overflow:auto"><table><thead><tr><th><input id="selectAll" type="checkbox"></th><th>Parent</th><th>Child</th><th>Requested</th><th>Proposed</th><th>Price</th><th>Status</th><th>Action</th></tr></thead><tbody id="quoteRows"></tbody></table></div></div>
+<div id="adminCalendar" class="hidden"><div class="toolbar"><button class="btn" id="prevMonth">←</button><h2 id="monthTitle"></h2><button class="btn" id="nextMonth">→</button></div><div id="calendar" class="calendar"></div></div>
+<div id="adminMessages" class="hidden"><h2>Parent Messages</h2><div id="adminMessageList"></div></div></section>
+</main>
+
+<footer><p><b>TTMK – Learn. Play. Pong!</b></p><p>Grange Farm, Milton Keynes, MK8 0NP</p><p><a href="mailto:lucacookielicious@gmail.com">lucacookielicious@gmail.com</a></p><button class="btn" data-page="login">Staff</button></footer>
+
+<script>
+(function(){
+const Q="ttmk_quotes_v5",M="ttmk_messages_v5";
+const getQ=()=>JSON.parse(localStorage.getItem(Q)||"[]"),saveQ=a=>localStorage.setItem(Q,JSON.stringify(a));
+const getM=()=>JSON.parse(localStorage.getItem(M)||"[]"),saveM=a=>localStorage.setItem(M,JSON.stringify(a));
+const esc=s=>String(s==null?"":s).replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#039;"}[m]));
+let parentId=sessionStorage.getItem("ttmk_parent"),month=new Date();month.setDate(1);
+
+function show(id){document.querySelectorAll(".page").forEach(x=>x.classList.remove("active"));document.getElementById(id).classList.add("active");window.scrollTo(0,0);if(id==="parent")loadParent();if(id==="admin")loadAdmin();}
+document.addEventListener("click",e=>{const p=e.target.closest("[data-page]");if(p){show(p.dataset.page);return;}const a=e.target.closest("[data-admin]");if(a){adminTab(a.dataset.admin);return;}});
+
+document.getElementById("quoteForm").addEventListener("submit",e=>{
+e.preventDefault();const q=Object.fromEntries(new FormData(e.target));q.id="Q"+Date.now();q.status="New";q.created=new Date().toISOString();q.proposedDate="";q.proposedTime="";q.price="";q.payment="";q.quoteMessage="";
+const a=getQ();a.unshift(q);saveQ(a);parentId=q.id;sessionStorage.setItem("ttmk_parent",q.id);e.target.reset();show("parent");
+});
+
+document.getElementById("loginForm").addEventListener("submit",e=>{e.preventDefault();if(document.getElementById("staffPassword").value==="ttmkadmin"){sessionStorage.setItem("ttmk_staff","1");show("admin");}else{const n=document.getElementById("loginNotice");n.textContent="Incorrect password.";n.classList.add("show");}});
+document.getElementById("adminLogout").onclick=()=>{sessionStorage.removeItem("ttmk_staff");show("home")};
+document.getElementById("parentLogout").onclick=()=>{sessionStorage.removeItem("ttmk_parent");show("home")};
+document.getElementById("parentQuoteBtn").onclick=()=>{document.getElementById("parentQuoteTab").classList.remove("hidden");document.getElementById("parentMessagesTab").classList.add("hidden");loadParent()};
+document.getElementById("parentMsgBtn").onclick=()=>{document.getElementById("parentQuoteTab").classList.add("hidden");document.getElementById("parentMessagesTab").classList.remove("hidden");loadParent()};
+
+function loadParent(){
+const q=getQ().find(x=>x.id===parentId);if(!q){show("quote");return;}
+let actions="";
+if(q.status==="Quote Sent")actions='<div class="toolbar"><button class="btn green" id="acceptQuote">ACCEPT QUOTE</button><button class="btn yellow" id="changeQuote">REQUEST A CHANGE</button><button class="btn red" id="declineQuote">DECLINE</button></div>';
+document.getElementById("parentQuote").innerHTML="<p><b>Child:</b> "+esc(q.child)+"</p><p><b>Status:</b> <span class=\"pill\">"+esc(q.status)+"</span></p>"+
+(q.proposedDate?"<p><b>Proposed date:</b> "+esc(q.proposedDate)+"</p>":"")+(q.proposedTime?"<p><b>Proposed time:</b> "+esc(q.proposedTime)+"</p>":"")+(q.price?"<p><b>Price:</b> £"+esc(q.price)+"</p>":"")+(q.payment?"<p><b>Payment:</b> "+esc(q.payment)+"</p>":"")+
+(q.quoteMessage?"<div class=\"card\"><b>TTMK:</b><p>"+esc(q.quoteMessage)+"</p></div>":"")+actions;
+const msgs=getM().filter(m=>m.quoteId===q.id);document.getElementById("parentMessages").innerHTML=msgs.length?msgs.map(m=>"<div class=\"msg "+(m.sender==="TTMK"?"admin":"")+"\" ><b>"+esc(m.sender)+"</b><p>"+esc(m.text)+"</p><span class=\"small\">"+new Date(m.time).toLocaleString()+"</span></div>").join(""):"<p>No messages yet.</p>";
+document.getElementById("messageBadge").textContent=msgs.length?" ("+msgs.length+")":"";
+const ac=document.getElementById("acceptQuote"),ch=document.getElementById("changeQuote"),de=document.getElementById("declineQuote");
+if(ac)ac.onclick=()=>respondParent("Confirmed");if(ch)ch.onclick=()=>{document.getElementById("parentQuoteTab").classList.add("hidden");document.getElementById("parentMessagesTab").classList.remove("hidden")};if(de)de.onclick=()=>respondParent("Cancelled");
+}
+function respondParent(status){const a=getQ(),q=a.find(x=>x.id===parentId);q.status=status;saveQ(a);addMsg("Parent",status==="Confirmed"?"Quote accepted.":status==="Cancelled"?"Quote declined.":"");loadParent();alert(status==="Confirmed"?"Booking confirmed!":"Your response has been saved.");}
+function addMsg(sender,text){const a=getM();a.push({id:"M"+Date.now(),quoteId:parentId,sender,text,time:new Date().toISOString()});saveM(a)}
+document.getElementById("sendParentMessage").onclick=()=>{const t=document.getElementById("parentMessageText").value.trim();if(!t)return;addMsg("Parent",t);document.getElementById("parentMessageText").value="";loadParent()};
+
+function adminTab(tab){
+if(sessionStorage.getItem("ttmk_staff")!=="1"){show("login");return}
+["adminDashboard","adminQuotes","adminCalendar","adminMessages"].forEach(id=>document.getElementById(id).classList.add("hidden"));
+if(tab==="dashboard")document.getElementById("adminDashboard").classList.remove("hidden");
+if(tab==="quotes")document.getElementById("adminQuotes").classList.remove("hidden");
+if(tab==="calendar"){document.getElementById("adminCalendar").classList.remove("hidden");renderCalendar()}
+if(tab==="messages"){document.getElementById("adminMessages").classList.remove("hidden");renderAdminMessages()}
+loadAdmin();
+}
+document.getElementById("adminDashBtn").onclick=()=>adminTab("dashboard");document.getElementById("adminQuotesBtn").onclick=()=>adminTab("quotes");document.getElementById("adminCalBtn").onclick=()=>adminTab("calendar");document.getElementById("adminMsgBtn").onclick=()=>adminTab("messages");
+
+function loadAdmin(){
+if(sessionStorage.getItem("ttmk_staff")!=="1"){show("login");return}
+const a=getQ();document.getElementById("newCount").textContent=a.filter(x=>x.status==="New").length;document.getElementById("confirmedCount").textContent=a.filter(x=>x.status==="Confirmed").length;document.getElementById("finishedCount").textContent=a.filter(x=>x.status==="Finished").length;
+document.getElementById("quoteRows").innerHTML=a.length?a.map(q=>"<tr><td><input class=\"rowSelect\" type=\"checkbox\" value=\""+esc(q.id)+"\"></td><td>"+esc(q.parent)+"<br><span class=\"small\">"+esc(q.email)+"</span></td><td>"+esc(q.child)+"</td><td>"+esc(q.date)+"<br>"+esc(q.time)+"</td><td>"+esc(q.proposedDate)+"<br>"+esc(q.proposedTime)+"</td><td>"+(q.price?"£"+esc(q.price):"-")+"</td><td><span class=\"pill\">"+esc(q.status)+"</span></td><td><button class=\"btn\" data-edit=\""+esc(q.id)+"\">Edit</button></td></tr>").join(""):"<tr><td colspan=\"8\">No requests yet.</td></tr>";
+}
+document.getElementById("selectAll").onchange=e=>document.querySelectorAll(".rowSelect").forEach(x=>x.checked=e.target.checked);
+function selected(){return [...document.querySelectorAll(".rowSelect:checked")].map(x=>x.value)}
+document.getElementById("bulkSet").onclick=()=>{
+const ids=selected();if(!ids.length)return alert("Select at least one quote.");
+const d=prompt("Proposed date (YYYY-MM-DD)");if(!d)return;
+const t=prompt("Proposed time (e.g. 16:00)")||"";const p=prompt("Price (£)")||"";const pay=prompt("Payment method","Cash on the day")||"Cash on the day";const msg=prompt("Quote message","Here is your proposed TTMK session.")||"";
+const a=getQ();a.forEach(q=>{if(ids.includes(q.id)){q.proposedDate=d;q.proposedTime=t;q.price=p;q.payment=pay;q.quoteMessage=msg;q.status="Quote Sent"}});saveQ(a);loadAdmin();alert(ids.length+" quote(s) prepared and sent.");
+};
+function bulkStatus(status){const ids=selected();if(!ids.length)return alert("Select at least one quote.");const a=getQ();a.forEach(q=>{if(ids.includes(q.id))q.status=status});saveQ(a);loadAdmin();alert(ids.length+" quote(s) updated.")}
+document.getElementById("bulkConfirm").onclick=()=>bulkStatus("Confirmed");document.getElementById("bulkCancel").onclick=()=>bulkStatus("Cancelled");
+
+document.addEventListener("click",e=>{
+const ed=e.target.closest("[data-edit]");if(ed){const a=getQ(),q=a.find(x=>x.id===ed.dataset.edit);if(!q)return;
+let d=prompt("Proposed date",q.proposedDate||q.date);if(d!==null)q.proposedDate=d;let t=prompt("Proposed time",q.proposedTime||q.time);if(t!==null)q.proposedTime=t;let p=prompt("Price (£)",q.price||"");if(p!==null)q.price=p;let pay=prompt("Payment method",q.payment||"Cash on the day");if(pay!==null)q.payment=pay;let msg=prompt("Quote message",q.quoteMessage||"");if(msg!==null)q.quoteMessage=msg;let s=prompt("Status",q.status);if(s!==null)q.status=s;saveQ(a);loadAdmin();return}
+const rp=e.target.closest("[data-reply]");if(rp){const t=prompt("Reply to parent");if(!t)return;const a=getM();a.push({id:"M"+Date.now(),quoteId:rp.dataset.reply,sender:"TTMK",text:t,time:new Date().toISOString()});saveM(a);renderAdminMessages()}
+});
+
+function renderCalendar(){
+const y=month.getFullYear(),m=month.getMonth(),first=new Date(y,m,1),last=new Date(y,m+1,0);
+document.getElementById("monthTitle").textContent=month.toLocaleString(undefined,{month:"long",year:"numeric"});
+let out=["Sun","Mon","Tue","Wed","Thu","Fri","Sat"].map(x=>"<div class=\"calhead\">"+x+"</div>").join("");
+for(let i=0;i<first.getDay();i++)out+="<div class=\"day muted\"></div>";
+const a=getQ();
+for(let d=1;d<=last.getDate();d++){const date=y+"-"+String(m+1).padStart(2,"0")+"-"+String(d).padStart(2,"0");const ev=a.filter(q=>q.proposedDate===date&&q.status==="Confirmed");const today=new Date().toISOString().slice(0,10)===date;out+="<div class=\"day "+(today?"today":"")+"\"><b>"+d+"</b>"+ev.map(q=>"<div class=\"event\">"+esc(q.proposedTime)+" – "+esc(q.child)+"</div>").join("")+"</div>"}
+document.getElementById("calendar").innerHTML=out;
+}
+document.getElementById("prevMonth").onclick=()=>{month.setMonth(month.getMonth()-1);renderCalendar()};document.getElementById("nextMonth").onclick=()=>{month.setMonth(month.getMonth()+1);renderCalendar()};
+
+function renderAdminMessages(){
+const msgs=getM();document.getElementById("adminMessageList").innerHTML=msgs.length?msgs.slice().reverse().map(m=>"<div class=\"msg "+(m.sender==="TTMK"?"admin":"")+"\" ><b>"+esc(m.sender)+"</b> · Quote "+esc(m.quoteId)+"<p>"+esc(m.text)+"</p><span class=\"small\">"+new Date(m.time).toLocaleString()+"</span>"+(m.sender==="Parent"?"<br><button class=\"btn\" data-reply=\""+esc(m.quoteId)+"\">Reply</button>":"")+"</div>").join(""):"<p>No messages yet.</p>";
+}
+})();
+</script>
+</body>
+</html>
